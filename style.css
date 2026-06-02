@@ -1,0 +1,512 @@
+/* ==========================================================================
+   VARIÁVEIS CONFIGURÁVEIS (Custom Properties)
+   ========================================================================== */
+:root {
+    /* Paleta de Cores Obrigatória */
+    --cor-azul-profundo: #0a192f;
+    --cor-azul-metalico: #172a45;
+    --cor-azul-celeste: #30bcf4;
+    --cor-verde-neon: #10b981;
+    --cor-amarelo-ouro: #f59e0b;
+    --cor-branco: #ffffff;
+    --cor-preto: #020c1b;
+    --cor-cinza-claro: #f8fafc;
+    --cor-texto-escuro: #334155;
+    --cor-texto-claro: #cbd5e1;
+
+    /* Tipografia com clamp para responsividade fluida */
+    --fonte-titulo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-corpo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --tamanho-h1: clamp(2rem, 5vw, 3.5rem);
+    --tamanho-h2: clamp(1.5rem, 4vw, 2.2rem);
+    --tamanho-corpo: clamp(1rem, 1vw + 0.5rem, 1.15rem);
+
+    /* Layout, Bordas e Espaçamentos Personalizáveis */
+    --raio-borda: 12px;
+    --espacamento-padrao: clamp(1rem, 3vw, 2.5rem);
+    --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --sombra-premium: 0 10px 30px rgba(23, 42, 69, 0.15);
+    --transicao-suave: all 0.3s ease;
+}
+
+/* Modo Escuro Dinâmico */
+body.dark-mode {
+    --cor-cinza-claro: #0b1424;
+    --cor-texto-escuro: #f1f5f9;
+    --cor-branco: #0f172a;
+    --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   RESETS E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-cinza-claro);
+    color: var(--cor-texto-escuro);
+    line-height: 1.7;
+    transition: var(--transicao-suave);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--espacamento-padrao);
+}
+
+strong {
+    color: var(--cor-azul-celeste);
+    font-weight: 600;
+}
+
+body.dark-mode strong {
+    color: var(--cor-verde-neon);
+}
+
+/* ==========================================================================
+   CAIXA FLUTUANTE DE ACESSIBILIDADE
+   ========================================================================== */
+.acessibilidade-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    background: rgba(10, 25, 47, 0.9);
+    padding: 10px;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-premium);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(48, 188, 244, 0.2);
+}
+
+.acessibilidade-container button {
+    background: var(--cor-azul-metalico);
+    color: var(--cor-branco);
+    border: 1px solid var(--cor-azul-celeste);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: var(--transicao-suave);
+}
+
+.acessibilidade-container button:hover {
+    background: var(--cor-azul-celeste);
+    color: var(--cor-preto);
+}
+
+.acessibilidade-container button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, rgba(2, 12, 27, 0.95), rgba(10, 25, 47, 0.85)), 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(48,188,244,0.15)"/></svg>');
+    background-size: cover;
+    color: var(--cor-branco);
+    padding: calc(var(--espacamento-padrao) * 4) var(--espacamento-padrao) calc(var(--espacamento-padrao) * 2);
+    text-align: center;
+    border-bottom: 4px solid var(--cor-verde-neon);
+}
+
+.hero-conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-family: var(--fonte-titulo);
+    font-size: var(--tamanho-h1);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--cor-branco);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.hero-section p {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--cor-texto-claro);
+    margin-bottom: 35px;
+}
+
+.btn-principal {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--cor-verde-neon), var(--cor-azul-celeste));
+    color: var(--cor-preto);
+    text-decoration: none;
+    padding: 15px 35px;
+    font-weight: bold;
+    border-radius: var(--raio-borda);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    transition: var(--transicao-suave);
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(48, 188, 244, 0.6);
+}
+
+/* ==========================================================================
+   LAYOUT DO CONTEÚDO PRINCIPAL (Grid Responsivo)
+   ========================================================================== */
+.layout-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-padrao);
+    margin-top: var(--espacamento-padrao);
+    margin-bottom: var(--espacamento-padrao);
+}
+
+@media (min-width: 1024px) {
+    .layout-principal {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Artigo Principal */
+.conteudo-artigo {
+    font-size: var(--tamanho-corpo);
+}
+
+.conteudo-artigo section {
+    margin-bottom: calc(var(--espacamento-padrao) * 1.5);
+}
+
+.conteudo-artigo p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.conteudo-artigo h2 {
+    font-size: var(--tamanho-h2);
+    margin-bottom: 25px;
+    color: var(--cor-azul-profundo);
+    border-left: 5px solid var(--cor-amarelo-ouro);
+    padding-left: 15px;
+}
+
+body.dark-mode .conteudo-artigo h2 {
+    color: var(--cor-azul-celeste);
+}
+
+blockquote {
+    font-style: italic;
+    background: var(--cor-azul-profundo);
+    color: var(--cor-texto-claro);
+    padding: 25px;
+    border-radius: var(--raio-borda);
+    border-right: 6px solid var(--cor-amarelo-ouro);
+    margin: 30px 0;
+    box-shadow: var(--sombra-suave);
+}
+
+/* ==========================================================================
+   COMPONENTES VISUAIS: IMAGENS PREMIUM
+   ========================================================================== */
+.imagem {
+    width: 100%;
+    margin: 30px 0;
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    background: var(--cor-azul-metalico);
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(48, 188, 244, 0.1);
+}
+
+.imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicao-suave);
+}
+
+.imagem:hover img {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   COMPONENTES VISUAIS: ACCORDION (CAIXAS EXPANSÍVEIS)
+   ========================================================================== */
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.accordion-item {
+    background: var(--cor-branco);
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transicao-suave);
+}
+
+body.dark-mode .accordion-item {
+    background: var(--cor-azul-metalico);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cor-azul-profundo);
+    cursor: pointer;
+    transition: var(--transicao-suave);
+}
+
+body.dark-mode .accordion-header {
+    color: var(--cor-branco);
+}
+
+.accordion-header .icon {
+    font-size: 1.5rem;
+    color: var(--cor-verde-neon);
+    transition: var(--transicao-suave);
+}
+
+.accordion-item:hover {
+    box-shadow: var(--sombra-premium);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+    padding: 0 20px;
+}
+
+.accordion-body p {
+    padding-bottom: 20px;
+    font-size: 1.05rem;
+    color: var(--cor-texto-escuro);
+}
+
+body.dark-mode .accordion-body p {
+    color: var(--cor-texto-claro);
+}
+
+/* Classe utilitária ativada via JavaScript */
+.accordion-item.active .accordion-body {
+    max-height: 1000px;
+    transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+}
+
+.accordion-item.active .accordion-header .icon {
+    transform: rotate(45deg);
+    color: var(--cor-amarelo-ouro);
+}
+
+/* ==========================================================================
+   SIDEBAR & FORMULÁRIOS
+   ========================================================================== */
+.sidebar-inscricao {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.card-inscricao {
+    background: linear-gradient(180deg, var(--cor-azul-profundo), var(--cor-preto));
+    color: var(--cor-branco);
+    padding: 30px;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-premium);
+    border-top: 4px solid var(--cor-azul-celeste);
+}
+
+.card-inscricao h2 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--cor-branco);
+}
+
+.card-inscricao p {
+    font-size: 1rem;
+    color: var(--cor-texto-claro);
+    margin-bottom: 25px;
+}
+
+.form-moderno {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo-grupo label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-moderno input, .form-moderno textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--cor-branco);
+    font-size: 1rem;
+    transition: var(--transicao-suave);
+}
+
+body.dark-mode .form-moderno input, body.dark-mode .form-moderno textarea {
+    border: 1px solid rgba(48, 188, 244, 0.2);
+}
+
+.form-moderno input:focus, .form-moderno textarea:focus {
+    outline: none;
+    border-color: var(--cor-azul-celeste);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Botões do Formulário */
+.btn-inscricao, .btn-secundario {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transicao-suave);
+}
+
+.btn-inscricao {
+    background: var(--cor-azul-celeste);
+    color: var(--cor-preto);
+}
+
+.btn-inscricao:hover {
+    background: var(--cor-amarelo-ouro);
+}
+
+/* Seção Comentários (dentro do Main) */
+.comentarios-section {
+    background: var(--cor-branco);
+    padding: 30px;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-suave);
+    margin-top: 40px;
+}
+
+body.dark-mode .comentarios-section {
+    background: var(--cor-azul-metalico);
+}
+
+.comentarios-section h3 {
+    margin-bottom: 20px;
+}
+
+.comentarios-section .form-moderno input, .comentarios-section .form-moderno textarea {
+    color: var(--cor-texto-escuro);
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--cor-cinza-claro);
+}
+
+body.dark-mode .comentarios-section .form-moderno input, body.dark-mode .comentarios-section .form-moderno textarea {
+    color: var(--cor-branco);
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.2);
+}
+
+.btn-secundario {
+    background: var(--cor-azul-profundo);
+    color: var(--cor-branco);
+    width: auto;
+    align-self: flex-start;
+}
+
+body.dark-mode .btn-secundario {
+    background: var(--cor-verde-neon);
+    color: var(--cor-preto);
+}
+
+.lista-comentarios {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comentario-card {
+    background: var(--cor-cinza-claro);
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--cor-verde-neon);
+    font-size: 0.95rem;
+}
+
+body.dark-mode .comentario-card {
+    background: rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.rodape-pagina {
+    background: var(--cor-preto);
+    color: var(--cor-branco);
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+}
+
+.rodape-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.referencias a {
+    color: var(--cor-azul-celeste);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.referencias a:hover {
+    text-decoration: underline;
+    color: var(--cor-verde-neon);
+}
